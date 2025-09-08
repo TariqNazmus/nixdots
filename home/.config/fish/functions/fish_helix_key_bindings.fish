@@ -83,7 +83,7 @@ function fish_helix_key_bindings --description 'helix-like key bindings for fish
         bind -s --preset -M $mode -m insert \r end-selection execute
         bind -s --preset -M $mode -m insert o end-selection insert-line-under repaint-mode
         bind -s --preset -M $mode -m insert O end-selection insert-line-over repaint-mode
-        # FIXME i/a should keep selection, maybe
+
         bind -s --preset -M $mode i "fish_helix_command insert_mode"
         bind -s --preset -M $mode I "fish_helix_command prepend_to_line"
         bind -s --preset -M $mode a "fish_helix_command append_mode"
@@ -115,8 +115,7 @@ function fish_helix_key_bindings --description 'helix-like key bindings for fish
 
         for key in (seq 0 9)
             bind -s --preset -M $mode $key "fish_bind_count $key"
-            # FIXME example to bind 0
-            # FIXME backspace to edit count
+
         end
         for key in h \e\[D \eOD "-k left"
             bind -s --preset -M $mode $key "fish_helix_command "$ns_move_extend"_char_left"
@@ -166,20 +165,16 @@ function fish_helix_key_bindings --description 'helix-like key bindings for fish
         bind -s --preset -M $mode G "fish_helix_command goto_line"
         bind -s --preset -M $mode ge "fish_helix_command goto_last_line"
 
-        # FIXME alt-. doesn't work with t/T
-        # FIXME alt-. doesn't work with [ftFT][\n\r]
+
         bind -s --preset -M $mode \e. repeat-jump
 
-        # FIXME reselect after undo/redo
+
         bind -s --preset -M $mode u undo begin-selection
         bind -s --preset -M $mode U redo begin-selection
 
         bind -s --preset -M $mode -m replace_one r repaint-mode
 
-        # FIXME registers
-        # bind -s --preset -M $mode y fish_clipboard_copy
-        # bind -s --preset -M $mode P fish_clipboard_paste
-        # bind -s --preset -M $mode R kill-selection begin-selection yank-pop yank
+
 
         bind -s --preset -M $mode -m default d "fish_helix_command delete_selection; $commandline_v_repaint"
         bind -s --preset -M $mode -m default \ed "fish_helix_command delete_selection_noyank; $commandline_v_repaint"
@@ -196,50 +191,25 @@ function fish_helix_key_bindings --description 'helix-like key bindings for fish
         bind -s --preset -M $mode " P" "fish_helix_command paste_before_clip"
         bind -s --preset -M $mode " R" "fish_helix_command replace_selection_clip"
 
-        # FIXME keep selection
+
         bind -s --preset -M $mode ~ togglecase-selection
-        # FIXME ` and \e`
 
-        # FIXME .
-        # FIXME < and >
-        # FIXME =
-
-        # FIXME \ca \cx
-        # FIXME Qq
-
-        ## Shell
-        # FIXME
-
-        ## Selection manipulation
-        # FIXME & _
 
         bind -s --preset -M $mode \; begin-selection
         bind -s --preset -M $mode \e\; swap-selection-start-stop
-        # FIXME \e:
+
 
         bind -s --preset -M $mode % "fish_helix_command select_all"
 
         bind -s --preset -M $mode x "fish_helix_command select_line"
 
-        # FIXME x X \ex
-        # FIXME J
-        # FIXME \cc
 
-        ## Search
-        # FIXME
-
-        ## FIXME minor modes: g, m, space
-
-        ## FIXME [ and ] motions
     end
 
-    # FIXME should replace the whole selection
-    # FIXME should be able to go back to visual mode
+
     bind -s --preset -M replace_one -m default '' delete-char self-insert backward-char repaint-mode
     bind -s --preset -M replace_one -m default \r 'commandline -f delete-char; commandline -i \n; commandline -f backward-char; commandline -f repaint-mode'
     bind -s --preset -M replace_one -m default \e cancel repaint-mode
-
-    ## FIXME Insert mode keys
 
     ## Old config from vi:
 

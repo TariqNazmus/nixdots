@@ -1,5 +1,4 @@
-# FIXME this can't be called in sequence in general case,
-# because of unsynchronized `commandline -f` and `commandline -C`
+
 
 function fish_helix_command
     argparse h/help -- $argv
@@ -180,7 +179,6 @@ function __fish_helix_extend_by_mode
 end
 
 function __fish_helix_find_char -a mode count fish_cmdline till
-    # FIXME don't reset selection if N/A
     if test $mode = default
         commandline -f begin-selection
     end
