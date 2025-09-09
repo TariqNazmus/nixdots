@@ -2,7 +2,7 @@
   description = "XNM's NixOS Configuration";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 #launches Hyprland using the Universal Wayland Session Manager (UWSM)
   outputs = { nixpkgs, ... } @ inputs:
