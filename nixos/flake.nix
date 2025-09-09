@@ -10,17 +10,17 @@
     nixosConfigurations.sadat = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
-        ./bluetooth.nix
+        #./bluetooth.nix
         ./configuration.nix
-        ./display-manager.nix
+        #./display-manager.nix
         ./hardware-configuration.nix
-        ./hyprland.nix
+        #./hyprland.nix
         ./nix-settings.nix
         ./nixpkgs.nix
-        ./programming-languages.nix
+        #./programming-languages.nix
         ./security-services.nix
         ./services.nix
-        ./theme.nix
+        #./theme.nix
         ./users.nix
         ./utils.nix
       ];
