@@ -11,17 +11,6 @@
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
-        ./display-manager.nix
-        ./hyprland.nix
-        ./hardware-configuration.nix
-        ./nix-settings.nix
-        ./nixpkgs.nix
-        ./programming-languages.nix
-        ./security-services.nix
-        ./services.nix
-        ./theme.nix
-        ./users.nix
-        ./utils.nix
       ];
     };
   };
