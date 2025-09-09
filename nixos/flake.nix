@@ -5,7 +5,7 @@
     nixpkgs.url = "nixpkgs/nixos-25.05";
   };
 #launches Hyprland using the Universal Wayland Session Manager (UWSM)
-  outputs = { nixpkgs, ... } @ inputs:
+  outputs = { nixpkgs, ... }:
   {
     let
       system = "x86_64-linux";
