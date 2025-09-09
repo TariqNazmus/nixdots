@@ -5,30 +5,25 @@
     nixpkgs.url = "nixpkgs/nixos-25.05";
   };
 #launches Hyprland using the Universal Wayland Session Manager (UWSM)
-  outputs = { nixpkgs, ... }:
+  outputs = { nixpkgs, ... } @ inputs:
   {
-    let
-      system = "x86_64-linux";
-    in {
     nixosConfigurations.sadat = nixpkgs.lib.nixosSystem {
-      inherit system;
+      specialArgs = { inherit inputs; };
       modules = [
-        #./bluetooth.nix
+        ./bluetooth.nix
         ./configuration.nix
-        #./display-manager.nix
+        ./display-manager.nix
         ./hardware-configuration.nix
-        #./hyprland.nix
+        ./hyprland.nix
         ./nix-settings.nix
         ./nixpkgs.nix
-        #./programming-languages.nix
-        #./security-services.nix
-        #./services.nix
-        #./theme.nix
+        ./programming-languages.nix
+        ./security-services.nix
+        ./services.nix
+        ./theme.nix
         ./users.nix
-        #./utils.nix
+        ./utils.nix
       ];
     };
-    };
-
   };
 }
