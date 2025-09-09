@@ -12,7 +12,6 @@
     in {
     nixosConfigurations.sadat = nixpkgs.lib.nixosSystem {
       inherit system;
-      specialArgs = { inherit inputs; };
       modules = [
         #./bluetooth.nix
         ./configuration.nix
