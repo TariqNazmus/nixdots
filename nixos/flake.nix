@@ -7,6 +7,9 @@
 #launches Hyprland using the Universal Wayland Session Manager (UWSM)
   outputs = { nixpkgs, ... } @ inputs:
   {
+    systems = [
+      "x86_64-linux"
+    ];
     nixosConfigurations.sadat = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
