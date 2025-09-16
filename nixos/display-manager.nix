@@ -22,6 +22,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    tuigreet
+    greetd.tuigreet
   ];
 }
