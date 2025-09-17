@@ -16,6 +16,8 @@
         #./bluetooth.nix
         ./configuration.nix
         ./display-manager.nix
+        ./fonts.nix
+        ./gc.nix
         ./hardware-configuration.nix
         ./hyprland.nix
         ./nix-settings.nix
