@@ -9,8 +9,8 @@
     # Declarative /etc/gitconfig settings
     config = {
       user = {
-        name = "Sadat";
-        email = "your-email@example.com"; # Replace with your GitHub/GitLab email
+        name = "TariqNazmus";
+        email = "tariq.nazmus@gmail.com";
       };
 
       init.defaultBranch = "main";
