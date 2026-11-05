@@ -6,6 +6,7 @@
       modules = [
         ./nixos/configuration.nix
         (inputs.self + "/modules")
+        inputs.pia.nixosModules.default
       ];
     };
   };
