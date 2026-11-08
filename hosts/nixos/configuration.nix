@@ -8,7 +8,6 @@
   # Bootloader & Kernel
   # boot.loader.systemd-boot.enable = true;
   # boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Networking
   networking.hostName = "nixos";
@@ -55,20 +54,24 @@
   users.users."sadat" = {
     isNormalUser = true;
     description = "Sadat";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [ ];
   };
 
   # Nix & Unfree Settings
   nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Programs & System Packages
   programs.firefox.enable = true;
 
   environment.systemPackages = with pkgs; [
-    git
-    vim
     wget
     google-chrome
   ];
