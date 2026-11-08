@@ -16,6 +16,7 @@
 
       imports = [
         ./hosts/flake-module.nix
+        ./templates/flake-module.nix
       ];
     };
 }

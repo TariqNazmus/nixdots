@@ -74,6 +74,7 @@
   environment.systemPackages = with pkgs; [
     wget
     google-chrome
+    btop
   ];
 
   # Force Electron/Chrome apps to use native Wayland on GNOME
