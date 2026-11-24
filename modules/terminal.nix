@@ -45,7 +45,9 @@ in
 {
   programs.fish = {
     enable = true;
-
+    shellAliases = {
+      codetopo-visualizer = "nix run path:/home/sadat/Projects/codetopo-tools-flake --";
+    };
     # Auto-bootstrap Tide if unconfigured and keep devShell indicators active
     interactiveShellInit = ''
       if not set -q _tide_left_items
