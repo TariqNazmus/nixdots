@@ -72,11 +72,22 @@
   programs.firefox.enable = true;
 
   environment.systemPackages = with pkgs; [
+    tree
+    rustc
+    cargo
     wget
     google-chrome
+    brave
+    qbittorrent
+    gnomeExtensions.appindicator
     btop
   ];
-
+  # qt = {
+  #   # NOTE: for gnome only
+  #   enable = true;
+  #   platformTheme = "gnome";
+  #   style = "adwaita-dark"; # or "adwaita" for light mode
+  # };
   # Force Electron/Chrome apps to use native Wayland on GNOME
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
