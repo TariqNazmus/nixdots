@@ -29,15 +29,26 @@
       libxml2
       libffi
       sqlite
+
     ];
   };
 
   # 4. Baseline CLI tools & TUI managers
   environment.systemPackages = with pkgs; [
-    uv             # Fast Python package & virtualenv manager
-    pnpm           # Fast Node.js package manager
-    bun            # JS runtime & bundler
+    uv # Fast Python package & virtualenv manager
+    pnpm # Fast Node.js package manager
+    bun # JS runtime & bundler
     docker-compose # Multi-container runner
-    lazydocker     # Terminal UI for Docker (pairs with lazygit)
+    lazydocker # Terminal UI for Docker (pairs with lazygit)
+    (symlinkJoin {
+      name = "dbvisualizer";
+      paths = [ dbvisualizer ];
+      nativeBuildInputs = [ makeWrapper ];
+      postBuild = ''
+        rm -f $out/bin/dbvis
+        makeWrapper ${dbvisualizer}/bin/.dbvis-wrapped $out/bin/dbvis \
+          --set INSTALL4J_JAVA_HOME "${jdk21}"
+      '';
+    }) # NOTE: requires Unfree
   ];
 }
